@@ -245,3 +245,85 @@ Pour cloner un dépot :
 ```bash
 git clone https://github.com/bendahmanem/ISITECH-2324-B2-DEV-Versioning
 ```
+
+#### Ignorer des fichiers
+
+Pour ignorer des fichiers il suffit de creer un fichier gitignore et d'y ajouter les fichiers et les dossiers a ignorer
+
+Git ignore automatiquement les dossiers vide !
+
+#### Consulter l'état des ficiers
+```sh
+git status
+```
+```sh
+git diff
+```
+
+Git status présente l'état global du dépot, modifié ou non, et git diff présente les modifications apportées aux fichiers.
+
+On peut utiliser git diff de façon plus précise :
+```sh
+git diff --staged
+```
+#### Valider des modifications 
+
+```sh 
+git commit -m "message"
+```
+
+#### Effacer des fichiers 
+Pour éliminer un fichier il faut utiliser les commandes suivantes :
+
+```sh
+rm <fichier>
+
+git status
+
+git rm <fichier>
+```
+Cette dernière commande va indexer le fichier pour qu'il soit supprimé lors du prochain commit.
+
+Il existe une autre forme de suppression de fichier qui consiste à utiliser la commande suivante :
+
+```sh 
+guit rm --cached <fichier>
+```
+Cette commande va supprimer le fichier de l'index mais pas du disque dur.
+
+#### Visualiser l'historique 
+
+```sh 
+git log
+```
+
+La commande log est très puissante et possède de nombreuses options. En voici quelques-unes :
+
+```sh 
+git log --stat
+```
+Cette commande affiche des statistiques sur les fichiers modifiés a chaque commit.
+
+#### Désindexer des éléments déjà commits
+
+A faire
+
+```sh
+git remote show origin
+```
+Cette commande permet d'inspecter les informations d'un dépot distant.
+
+#### La création de tags (ou étiquettes)
+
+En plus d'identifier les commits par des identifiants uniques, git vous permet aussi d'etiqueter un certain état de l'historique (commit)comme étant important. Cela peut etre utile pour marquer des versions majeures de votre code source. 
+
+Par exemple :
+
+```sh
+git tag -a v1.0 -m "Version 1.0"
+```
+
+On peut donc lister ces tags avec la commande suivante :
+ ```sh 
+ git tag
+```
