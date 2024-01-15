@@ -1,12 +1,6 @@
 # Versioning
 
-## 0. Informations sur la prise de notes et la notation
 
-- Les notes sont prises en Markdown
-- Tout rendu se fait avec un depot Git
-- La qualite de la prise de note fera partie de la note finale
-
-- Au cours de l'examen l'utilisation ou toute suspicion d'utilisation de chat GPT entrainera une note de 0
 
 ## Définition et Objectifs du Versioning:
 
@@ -184,11 +178,17 @@ git config --global core.editor "'C:/Program Files/Notepad++/notepad.ewe'
 -multiInst -notabbar -nosession -noPlugin"
 ````
 
+#### Verifier vos paramètres
 
+````sh
+git config --list
 
+git config user.name
+````
 
+### Les bases de Git 
 
-## 1. Introduction a Git
+#### Création d'un dépot.
 
 Pour creer un depot Git, placez vous au sein d'un repertoire et entrez la commande :
 
@@ -215,4 +215,6 @@ Pour sauvegarder votre travail :
 ```bash
 git commit -m "votre message de commit"
 ```
+
+![Alt text](image-1.png)
 
