@@ -218,3 +218,8 @@ git commit -m "votre message de commit"
 
 ![Alt text](image-1.png)
 
+```bash
+git push -u origin main
+```
+Cette commande permet de créer notre branche distante et de push les données dessus
+
