@@ -217,9 +217,31 @@ git commit -m "votre message de commit"
 ```
 
 ![Alt text](image-1.png)
+Cette commande permet de créer notre branche distante et de push les données dessus :
 
 ```bash
 git push -u origin main
 ```
-Cette commande permet de créer notre branche distante et de push les données dessus
 
+
+Lier son dépot distant avec le dépot local :
+
+```bash
+git remote add origin "lien vers depot"
+```
+
+premier push :
+```bash
+git push -u origin main
+```
+
+autre push :
+```bash
+git push 
+```
+
+Pour cloner un dépot :
+
+```bash
+git clone https://github.com/bendahmanem/ISITECH-2324-B2-DEV-Versioning
+```
