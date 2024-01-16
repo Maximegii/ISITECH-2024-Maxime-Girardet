@@ -327,3 +327,118 @@ On peut donc lister ces tags avec la commande suivante :
  ```sh 
  git tag
 ```
+
+#### Les branches
+
+Lorsque vous faites un commit, Git enregistre un objet de commit qui contient un pointeur vers l'arbre de contenu qui représente l'état de votre projet à ce moment-la. ce pointeur de commit contient le nom SHA-1 du commit.
+
+
+
+
+
+Pour creer une branche il suffit d'utiliser la commande suivante : 
+
+```sh
+git branch <nom de branche>
+```
+![Alt text](image-2.png)
+
+Git branch crée une nouvelle branche sans nous basculer dessus.
+
+Pour basculer vers une autre branche, on utilise la commande 
+
+```sh
+git checkout <nom de branche>
+```
+Pour créer une branche et basculer directement dessus on utilise la commande suivante :
+
+```sh
+git checkout -b <nom de branche>
+```
+
+#### Fusionner des branches 
+
+![Alt text](image-3.png)
+
+On va commencer à travailler sur l'issue 53 :
+
+```sh
+git checkout -b iss53
+```
+![Alt text](image-4.png)
+
+On va effectuer un premier commit
+
+```sh
+git commit -m "commit 3"
+```
+![Alt text](image-5.png)
+
+On va ensuite basculer sur la branche master afin d'effectuer un hotfix 
+
+```sh
+git checkout master
+```
+
+![Alt text](image-6.png)
+
+```sh
+git branch hotfix
+git commit -m "commit 4"
+```
+
+Nous sommes satisfait du hotfix et nous allons le valider :
+
+```sh
+git checkout master
+git merge hotfix
+```
+La branche hotfix n'a plus d'utilité, allons la supprimer :
+
+```sh
+git branch -d hotfix
+```
+
+On va maintenant retourner sur iss53 et continuer à travailler
+
+```sh
+git checkout iss53
+```
+
+```sh
+git commit -m "commit 5"
+```
+![Alt text](image-7.png)
+
+```sh
+git checkout master 
+git merge iss53
+```
+La stratégie de merge est alors différente de celle utilisée précedemment : Merge commit
+
+![Alt text](image-8.png)
+
+Au lieu d'avancer la branche master, Git cree un nouveau commit qui contient les différences entre les deux branches.
+
+![Alt text](image-9.png)
+
+### Resoudre des conflits
+
+Un conflit a lieu lorsque deux branches differentes ont modifiées la meme partie du meme fichier, ou si un fichier a été supprimé dans une branche alors qu'il a été modifié dans une autre.
+
+![Alt text](image-10.png)
+
+Physiquement, un conflit est représenté par des caractères spéciaux qui apparaissent dans le fichier.
+
+![Alt text](image-11.png)
+
+Pour résoudre un conflit il suffit de choisir une des deux modifications ou alors faire un mélange des deux 
+
+Après résolution du conflit il suffit de commit.
+
+Vous avez un outil qui permet de résoudre les conflits avec git :
+
+```sh
+git mergetool 
+```
+
