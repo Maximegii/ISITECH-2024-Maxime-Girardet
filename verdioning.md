@@ -530,3 +530,29 @@ voila ce qui se passe
 voila le resultat final :
 
 ![Alt text](image-15.png)
+
+Avec le rebase on aurait entré les commandes suivantes :
+
+```sh
+git checkout experiment
+
+git rebase master
+```
+
+Et voici ce qui se passe :
+
+![Alt text](image-20.png)
+
+Et voici le resultat final:
+
+![Alt text](image-22.png)
+
+#### Rebaser votre travail (avancé)
+
+Le rebase linéarise l'historique des commits
+
+
+#### Rebase or not rebase 
+
+La seule règle à respecter avec la commande 
+Rebase : ne jamais rebase des modifications qui ont été publiées sur un serveur distant (push)
