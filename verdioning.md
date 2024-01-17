@@ -442,3 +442,91 @@ Vous avez un outil qui permet de résoudre les conflits avec git :
 git mergetool 
 ```
 
+Pour afficher toutes les branches :
+
+```sh
+git branch -a
+git branch --all
+```
+Parlons un peu de la commande 'git fetch' : elle permet de synchroniser vos travaux, elle va rechercher le serveur qui heberge <distant> et  va recuperer les modifications qui ont été efféctués sur le serveur distant 
+
+#### Pour pousser des modifications
+
+distant = origin
+```sh 
+git push <distant> <branche>
+
+git push origin master
+
+git push -u origin master
+```
+Pour récuperer les modifications effectuees sur le serveur distant a propos de nouvelles branches existant 
+
+git fetch <distant>
+
+Pour recuperer des modifications et les fusionner avec vos branches locales
+
+git pull <distant> <breanche>
+
+La regle d'or lorsqu'on debute avec Git :
+`commit` -> `pull` -> `push`
+
+lorsque vous recuperez les branches distantes avec la commande fetch, vous ne creez pas automatiquement une branche locale qui suit la branche distante. vous devez creer une branche locale et la lier a la branche distante
+
+````sh
+git checkout -b <nom-de-branche> <distant>/<nom-de-branche>
+````
+
+On a un racourci pour cette commande
+
+````sh
+git checkout --track <distant>/<nom-de-branche>
+````
+
+Il y'a meme plus court si la branche locale n'existe pas encore
+
+````sh
+git checkout <nom-de-branche>
+````
+````sh
+git fetch --all
+git branch -vv
+````
+
+Analysons un peu la commande suivante : 
+
+````sh
+git push origin --delete une-branche
+````
+
+#### Rebaser votre travail
+
+Avec Git il y'a deux manières d'integer les modifications d'une branche dans une autre :
+- La fusion (merge)
+- Le rebasage (rebase)
+![Alt text](image-12.png)
+
+Après un merge on obtient ça :
+
+````sh
+git checkout master
+
+git merge experiment
+````
+
+![Alt text](image-13.png)
+
+Avec le rebase on aurait rentré les commandes suivantes :
+
+````sh
+git checkout experiment 
+git rebase master
+````
+
+voila ce qui se passe 
+
+![Alt text](image-14.png)
+
+voila le resultat final :
+
+![Alt text](image-15.png)
